@@ -28,7 +28,7 @@ public class RichPresenceService
     private const string CLIENTID = "925134832453943336";
     private static Button[] _clientButtons =
     {
-        new Button() { Label = "Download Assist", Url = "https://assistval.com/" }
+        new Button() { Label = "Gilbert?", Url = "https://assistval.com/" }
     };
     private RichPresence _currentPresence;
     public bool BDiscordPresenceActive;
@@ -63,7 +63,7 @@ public class RichPresenceService
             Assets = new Assets()
             {
                 LargeImageKey = "default",
-                LargeImageText = "Powered By Assist"
+                LargeImageText = "Powered By Gilbet hehe"
             },
             Party = new Party()
             {
@@ -290,8 +290,8 @@ public class RichPresenceService
                 case ERPDataType.RANK:
                     if (ModuleSettings.Default.RichPresenceSettings.ShowRank)
                     {
-                        ValorantHelper.RankNames.TryGetValue(pres.competitiveTier, out string compName);
-                        _client.UpdateSmallAsset($"rank_{pres.competitiveTier}", compName);   
+                        ValorantHelper.RankNames.TryGetValue(27, out string compName);
+                        _client.UpdateSmallAsset($"rank_{27}", compName);   
                     }
                     else
                         _client.UpdateSmallAsset(string.Empty,null); 
@@ -347,8 +347,8 @@ public class RichPresenceService
                 case ERPDataType.RANK:
                     if (ModuleSettings.Default.RichPresenceSettings.ShowRank)
                     {
-                        ValorantHelper.RankNames.TryGetValue(pres.competitiveTier, out string compName);
-                        _client.UpdateLargeAsset($"rank_{pres.competitiveTier}", compName);   
+                        ValorantHelper.RankNames.TryGetValue(27, out string compName);
+                        _client.UpdateLargeAsset($"rank_{27}", compName);   
                     }
                     else
                         _client.UpdateLargeAsset($"default", "Assist");
