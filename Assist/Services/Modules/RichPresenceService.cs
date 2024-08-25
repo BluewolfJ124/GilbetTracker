@@ -25,7 +25,7 @@ public class RichPresenceService
     public static RichPresenceService Default = new RichPresenceService();
     #region Defaults
 
-    private const string CLIENTID = "925134832453943336";
+    private const string CLIENTID = "1277214343360024606";
     private static Button[] _clientButtons =
     {
         new Button() { Label = "Gilbert?", Url = "https://assistval.com/" }
