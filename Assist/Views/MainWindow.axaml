@@ -17,7 +17,7 @@
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="49"
-        Title="Assist"
+        Title="Gilbert Tracker"
         Opened="MainWindow_OnOpened">
 
     <Design.DataContext>

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <!-- Add Resources Here -->
-    <Color x:Key="AssistPrimaryColor">#F71D51</Color>
+    <Color x:Key="AssistPrimaryColor">#711fff</Color>
 
     <Color x:Key="AssistBackground">#171717</Color>
     <Color x:Key="AssistBackground85">#D9171717</Color>
@@ -16,7 +16,7 @@
     
     
     <Color x:Key="AssistButtonControlBackground">#151719</Color>
-    <Color x:Key="AssistButtonControlPressed">#bfF71D51</Color>
+    <Color x:Key="AssistButtonControlPressed">#bff71da0</Color>
     <Color x:Key="AssistDisabledControlBackground">#08090A</Color>
     <Color x:Key="AssistDisabledControlOutline">#161617</Color>
     <Color x:Key="AssistDisabledForeground">#484848</Color>

@@ -37,7 +37,7 @@ public partial class App : Application
 #if DEBUG
     public const string APPPROTOCOL = "assistdebug";
 #else
-    public const string APPPROTOCOL = "assist";
+    public const string APPPROTOCOL = "Gilbert Tracker";
 #endif
     public bool IsElevated => new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 

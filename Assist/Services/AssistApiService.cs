@@ -83,8 +83,7 @@ namespace Assist.Services
         {
             var response = await _client.GetAsync($"/api/valorant/bundles/{id}/");
             if (!response.IsSuccessStatusCode)
-                return CreateFailedBundle();
-            
+                return CreateFailedBundle(id);
             var data = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<Bundle>(data);
         }
@@ -106,13 +105,13 @@ namespace Assist.Services
             var data = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<List<Mission>>(data);
         }
-        private static Bundle CreateFailedBundle()
+        private static Bundle CreateFailedBundle(string bundle_id)
         {
             return new Bundle
             {
-                Name = "Could not find bundle on server",
-                Description = "Please contact Mike to fix this issue.",
-                DisplayIcon = "https://cdn.rumblemike.com/Bundles/2116a38e-4b71-f169-0d16-ce9289af4bfa_DisplayIcon.png"
+                Name = " ",
+                Description = " ",
+                DisplayIcon = $"https://media.valorant-api.com/bundles/{bundle_id}/displayicon.png"
             };
         }
         
