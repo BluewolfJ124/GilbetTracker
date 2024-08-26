@@ -11,14 +11,14 @@ public partial class RAccountAddPage : UserControl
 
     public RAccountAddPage()
     {
-        DataContext = _viewModel = new RAccountAddViewModel();
-        InitializeComponent();
+        //DataContext = _viewModel = new RAccountAddViewModel();
+        //InitializeComponent();
     }
     
     public RAccountAddPage(string? username)
     {
-        DataContext = _viewModel = new RAccountAddViewModel(username);
-        InitializeComponent();
+        //DataContext = _viewModel = new RAccountAddViewModel(username);
+        //InitializeComponent();
         
     }
     

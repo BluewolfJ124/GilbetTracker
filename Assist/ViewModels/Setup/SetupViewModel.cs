@@ -96,9 +96,15 @@ public partial class SetupViewModel : ViewModelBase
         AssistSettings.Save();
         BackButtonEnabled = _sequenceHistory.Count >= 2;
         
-        
-        _sequenceHistory.Add(nameof(AssistAccountSelectionControl));
-        CurrentContent = _sequenceControls[nameof(AssistAccountSelectionControl)];
+        AssistSettings.Default.CompletedSetup = true;
+        AssistSettings.Save();
+        Log.Information("Clearing all Controls from Memory");
+        _sequenceHistory.Clear();
+        _sequenceControls.Clear();
+        GC.Collect();
+        AssistApplication.ChangeMainWindowView(new StartupView());
+        //_sequenceHistory.Add(nameof(AssistAccountSelectionControl));
+        //CurrentContent = _sequenceControls[nameof(AssistAccountSelectionControl)];
     }
     
     [RelayCommand]
@@ -138,7 +144,7 @@ public partial class SetupViewModel : ViewModelBase
         Log.Information("Switching Back to inital Setup");
         
         
-        AssistApplication.ChangeMainWindowView(new StartupView());
+        //AssistApplication.ChangeMainWindowView(new StartupView());
     }
     
     [RelayCommand]
@@ -178,8 +184,9 @@ public partial class SetupViewModel : ViewModelBase
         
         _sequenceControls.Add(nameof(AssistAccountSelectionControl), new AssistAccountSelectionControl()
         {
+            
             AccountSelectionCommand = AccountSelectCommandCommand
-        });
+        }); 
         
         _controlsAdded = true;
     }

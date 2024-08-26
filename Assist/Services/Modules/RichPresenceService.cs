@@ -28,7 +28,7 @@ public class RichPresenceService
     private const string CLIENTID = "1277214343360024606";
     private static Button[] _clientButtons =
     {
-        new Button() { Label = "Gilbert?", Url = "https://assistval.com/" }
+        
     };
     private RichPresence _currentPresence;
     public bool BDiscordPresenceActive;
@@ -63,7 +63,7 @@ public class RichPresenceService
             Assets = new Assets()
             {
                 LargeImageKey = "default",
-                LargeImageText = "Powered By Gilbet hehe"
+                LargeImageText = "Powered By Gilbet"
             },
             Party = new Party()
             {
@@ -290,7 +290,7 @@ public class RichPresenceService
                 case ERPDataType.RANK:
                     if (ModuleSettings.Default.RichPresenceSettings.ShowRank)
                     {
-                        ValorantHelper.RankNames.TryGetValue(27, out string compName);
+                        ValorantHelper.RankNames.TryGetValue(pres.competitiveTier, out string compName);
                         _client.UpdateSmallAsset($"rank_{27}", compName);   
                     }
                     else
@@ -347,8 +347,8 @@ public class RichPresenceService
                 case ERPDataType.RANK:
                     if (ModuleSettings.Default.RichPresenceSettings.ShowRank)
                     {
-                        ValorantHelper.RankNames.TryGetValue(27, out string compName);
-                        _client.UpdateLargeAsset($"rank_{27}", compName);   
+                        ValorantHelper.RankNames.TryGetValue(pres.competitiveTier, out string compName);
+                        _client.UpdateLargeAsset($"rank_{pres.competitiveTier}", compName);   
                     }
                     else
                         _client.UpdateLargeAsset($"default", "Assist");
@@ -362,10 +362,12 @@ public class RichPresenceService
                         if (pres.sessionLoopState.Equals("INGAME", StringComparison.OrdinalIgnoreCase))
                         {
                             var data = await DisplayAgent(pres);
-                            _client.UpdateLargeAsset(data.Key, data.Value);   
+                            _client.UpdateLargeAsset(data.Key, data.Value);
+                            Log.Warning(data.Key); //dsagjisahdighsadihgiahsdighasihgihsadigadsgasdga
                         }
                         else
                             _client.UpdateLargeAsset($"default", "Assist");
+                    
                     }
                     else
                         _client.UpdateLargeAsset($"default", "Assist");
@@ -380,6 +382,7 @@ public class RichPresenceService
                             code = "range";
                         
                         _client.UpdateLargeAsset(code, MapName); 
+                        Log.Warning(code); //dsagjisahdighsadihgiahsdighasihgihsadigadsgasdga
                     }
                     else
                         _client.UpdateLargeAsset($"default", "Assist");
