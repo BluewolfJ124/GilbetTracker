@@ -96,6 +96,7 @@ public partial class SetupViewModel : ViewModelBase
         AssistSettings.Save();
         BackButtonEnabled = _sequenceHistory.Count >= 2;
         
+        Log.Information("User has selected an option on the account selection, setup is complete as user is overall done with program setup");
         AssistSettings.Default.CompletedSetup = true;
         AssistSettings.Save();
         Log.Information("Clearing all Controls from Memory");
@@ -103,8 +104,7 @@ public partial class SetupViewModel : ViewModelBase
         _sequenceControls.Clear();
         GC.Collect();
         AssistApplication.ChangeMainWindowView(new StartupView());
-        //_sequenceHistory.Add(nameof(AssistAccountSelectionControl));
-        //CurrentContent = _sequenceControls[nameof(AssistAccountSelectionControl)];
+        
     }
     
     [RelayCommand]
@@ -144,7 +144,7 @@ public partial class SetupViewModel : ViewModelBase
         Log.Information("Switching Back to inital Setup");
         
         
-        //AssistApplication.ChangeMainWindowView(new StartupView());
+        AssistApplication.ChangeMainWindowView(new StartupView());
     }
     
     [RelayCommand]
